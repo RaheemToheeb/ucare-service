@@ -97,7 +97,7 @@ const Lets = () => {
               <TableCell>{row.doctorName}</TableCell>
               <TableCell>{row.patientCase}</TableCell>
               <TableCell>
-                {moment(row.dateAndTime).format("MMMM d, YYYY  hh:mm")}
+                {moment(row.dateAndTime).format("YYYY MMM, D  hh:mm")}
               </TableCell>
             </TableRow>
           ))}
