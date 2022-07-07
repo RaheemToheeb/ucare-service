@@ -93,11 +93,12 @@ const SignUp = () => {
         Swal.fire({
           icon: "success",
           title: "Successful!",
-          text: "Now proceed to login.",
+          text: "Check your mail for OTP",
         });
-        // setLoad(false);
+        setLoad(false);
+        reset();
 
-        navigate("/login`");
+        // navigate("/otp");
       })
       .catch((err) => {
         setLoad(false);

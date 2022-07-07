@@ -62,36 +62,43 @@ const Signup = () => {
           title: "Successful!",
           text: "Now proceed to login.",
         });
+        setLoad(false);
         navigate(`/hospital/${hospitalId}/doctor`);
       })
       .catch((err) => {
         setLoad(false);
         console.log(err);
-        if (err.response.status === 400) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Hospital key is incorrect",
-            // text: `Something went wrong!`,
-          });
-        } else if (err.response.status === 404) {
-          console.log(err);
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Hospital does not exist. Go back and try again",
-            // text: `Something went wrong!`,
-          });
-        } else {
-          console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.response.data.message,
+          // text: `Something went wrong!`,
+        });
+        // if (err.response.status === 400) {
+        //   Swal.fire({
+        //     icon: "error",
+        //     title: "Oops...",
+        //     text: "Hospital key is incorrect",
+        //     // text: `Something went wrong!`,
+        //   });
+        // } else if (err.response.status === 404) {
+        //   console.log(err);
+        //   Swal.fire({
+        //     icon: "error",
+        //     title: "Oops...",
+        //     text: "Hospital does not exist. Go back and try again",
+        //     // text: `Something went wrong!`,
+        //   });
+        // } else {
+        //   console.log(err);
 
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: err.response.message,
-            // text: `Something went wrong!`,
-          });
-        }
+        //   Swal.fire({
+        //     icon: "error",
+        //     title: "Oops...",
+        //     text: err.response.message,
+        //     // text: `Something went wrong!`,
+        //   });
+        // }
       });
   });
 

@@ -48,11 +48,14 @@ const SignIn = () => {
       .post(url, { email, password })
       .then((res) => {
         navigate("/doctor-overview");
+        // setLoad(false);
+
         console.log(res);
         dispatch(createUser(res.data.data));
         Swal.fire({
           icon: "success",
           title: "Login Successful!",
+          // text: res.data.data.status,
           html: `<p>Let's save lives!</p>`,
         });
       })
